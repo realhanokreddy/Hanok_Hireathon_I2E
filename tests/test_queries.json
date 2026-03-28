@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "query": "What are the entry criteria for PDR?",
+    "category": "table_lookup",
+    "expected_sections": ["6"],
+    "expected_terms": ["PDR", "Preliminary Design Review", "entry criteria"]
+  },
+  {
+    "id": 2,
+    "query": "How does the risk management process feed into the technical review process?",
+    "category": "multi_hop",
+    "expected_sections": ["6.6", "6.8"],
+    "expected_terms": ["risk management", "technical review", "integration"]
+  },
+  {
+    "id": 3,
+    "query": "What is TRL and what are its levels?",
+    "category": "acronym_definition",
+    "expected_sections": ["Appendix"],
+    "expected_terms": ["Technology Readiness Level", "TRL", "levels", "1-9"]
+  },
+  {
+    "id": 4,
+    "query": "What does the systems engineering process flow look like?",
+    "category": "diagram_reference",
+    "expected_sections": ["1", "2"],
+    "expected_terms": ["Vee Model", "process flow", "lifecycle"]
+  },
+  {
+    "id": 5,
+    "query": "What should a verification plan include?",
+    "category": "requirement_list",
+    "expected_sections": ["6.3", "Appendix"],
+    "expected_terms": ["verification", "plan", "requirements", "test"]
+  },
+  {
+    "id": 6,
+    "query": "What is the purpose of System Requirements Review?",
+    "category": "definition",
+    "expected_sections": ["6"],
+    "expected_terms": ["SRR", "System Requirements Review", "purpose", "objectives"]
+  },
+  {
+    "id": 7,
+    "query": "How are technical performance measures used in systems engineering?",
+    "category": "process_description",
+    "expected_sections": ["4", "5"],
+    "expected_terms": ["TPM", "technical performance", "measures", "tracking"]
+  },
+  {
+    "id": 8,
+    "query": "What is the difference between verification and validation?",
+    "category": "comparison",
+    "expected_sections": ["6.3"],
+    "expected_terms": ["verification", "validation", "difference", "V&V"]
+  },
+  {
+    "id": 9,
+    "query": "What are the key elements of a Systems Engineering Management Plan?",
+    "category": "requirement_list",
+    "expected_sections": ["Appendix"],
+    "expected_terms": ["SEMP", "management plan", "elements", "sections"]
+  },
+  {
+    "id": 10,
+    "query": "Describe the trade study process in systems engineering",
+    "category": "process_description",
+    "expected_sections": ["4"],
+    "expected_terms": ["trade study", "analysis", "alternatives", "decision"]
+  },
+  {
+    "id": 11,
+    "query": "What is Configuration Management and why is it important?",
+    "category": "definition",
+    "expected_sections": ["6.9"],
+    "expected_terms": ["configuration management", "CM", "baseline", "control"]
+  },
+  {
+    "id": 12,
+    "query": "How does interface management work in systems engineering?",
+    "category": "process_description",
+    "expected_sections": ["4.7"],
+    "expected_terms": ["interface", "management", "control", "ICD"]
+  },
+  {
+    "id": 13,
+    "query": "What are the typical phases in a NASA project lifecycle?",
+    "category": "list",
+    "expected_sections": ["1", "2"],
+    "expected_terms": ["lifecycle", "phases", "Formulation", "Implementation"]
+  },
+  {
+    "id": 14,
+    "query": "What is a Key Decision Point and when do they occur?",
+    "category": "definition",
+    "expected_sections": ["2"],
+    "expected_terms": ["KDP", "Key Decision Point", "milestone", "gate"]
+  },
+  {
+    "id": 15,
+    "query": "What does CDR evaluate?",
+    "category": "review_criteria",
+    "expected_sections": ["6"],
+    "expected_terms": ["CDR", "Critical Design Review", "evaluation", "criteria"]
+  },
+  {
+    "id": 16,
+    "query": "How do you perform requirements analysis?",
+    "category": "process_description",
+    "expected_sections": ["4.2"],
+    "expected_terms": ["requirements", "analysis", "decomposition", "verification"]
+  },
+  {
+    "id": 17,
+    "query": "What is stakeholder analysis in systems engineering?",
+    "category": "definition",
+    "expected_sections": ["4.1"],
+    "expected_terms": ["stakeholder", "analysis", "needs", "expectations"]
+  },
+  {
+    "id": 18,
+    "query": "Explain the Vee Model in systems engineering",
+    "category": "diagram_reference",
+    "expected_sections": ["1", "2"],
+    "expected_terms": ["Vee Model", "V model", "development", "verification"]
+  },
+  {
+    "id": 19,
+    "query": "What is the role of Systems Engineering in integration and test?",
+    "category": "process_description",
+    "expected_sections": ["6.4"],
+    "expected_terms": ["integration", "test", "I&T", "systems engineering"]
+  },
+  {
+    "id": 20,
+    "query": "What are common risk management strategies?",
+    "category": "list",
+    "expected_sections": ["6.6"],
+    "expected_terms": ["risk", "mitigation", "avoidance", "acceptance", "transfer"]
+  }
+]

@@ -1,0 +1,72 @@
+# =============================================================================
+# NASA QA System - Requirements
+# =============================================================================
+# Installation: pip install -r requirements.txt
+# For Windows users: This file uses pre-built wheels to avoid C++ compiler issues
+# =============================================================================
+
+# Core Dependencies (Install First)
+numpy>=1.24.0,<2.0.0           # Numerical operations - install first!
+pydantic>=2.6.0                # Data validation
+pyyaml>=6.0.1                  # Configuration files
+python-dotenv>=1.0.0           # Environment variables
+requests>=2.31.0               # HTTP requests for PDF download
+tqdm>=4.66.0                   # Progress bars
+
+# PDF Processing
+docling>=2.82.0                # Primary PDF parser with table extraction
+pymupdf>=1.23.0                # Fallback PDF parser
+pypdf2>=3.0.0                  # Alternative PDF parser
+azure-ai-formrecognizer>=3.3.0 # Azure Doc Intelligence for advanced table extraction (optional)
+
+# Vector Store & Embeddings (Pre-built wheels)
+faiss-cpu>=1.7.4,<1.8.0        # Vector similarity search (CPU version)
+sentence-transformers>=2.3.0,<3.0.0  # Local embedding models (has pre-built wheels)
+
+# LLM Integration
+groq>=0.4.0                    # Groq API for fast, free LLM inference
+openai>=1.12.0                 # OpenAI API (optional)
+google-generativeai>=0.3.0     # Google Gemini API for multimodal (image analysis)
+tiktoken>=0.5.2                # Token counting
+
+# Text Processing (Core)
+langchain>=0.1.0,<0.2.0        # RAG framework
+langchain-openai>=0.0.5        # OpenAI integrations
+langchain-community>=0.0.20    # Community integrations
+
+# Data Processing
+pandas>=2.0.0,<2.2.0           # Table processing
+Pillow>=10.0.0                 # Image processing for diagram extraction
+
+# Testing
+pytest>=7.4.0                  # Testing framework
+pytest-cov>=4.1.0              # Coverage reporting
+
+# =============================================================================
+# Optional Dependencies (Uncomment if needed)
+# =============================================================================
+
+# GPU Acceleration (requires CUDA)
+# faiss-gpu>=1.7.4
+
+# Alternative Vector Stores
+# chromadb>=0.4.22              # SQLite-backed vector store
+
+# Alternative Document Parsers (comparison only)
+# unstructured[pdf]>=0.12.0
+
+# NLP for Advanced Features
+# spacy>=3.7.0
+# en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+
+# Local LLM Support
+# transformers>=4.36.0
+# torch>=2.1.0
+# accelerate>=0.25.0
+
+# Advanced Indexing
+# llama-index>=0.10.0
+black>=24.0.0                  # Code formatting
+flake8>=7.0.0                  # Linting
+ipython>=8.20.0                # Interactive shell
+jupyter>=1.0.0                 # Notebooks for experimentation

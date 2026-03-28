@@ -1,0 +1,151 @@
+# NASA Technical Manual QA System Configuration
+
+# LLM Provider Configuration
+llm_provider: "groq"  # Options: "groq", "openai"
+
+# Groq API Configuration (Free Tier - Recommended)
+groq:
+  api_key: "${GROQ_API_KEY}"  # Set via environment variable
+  llm_model: "llama3-70b-8192"  # Options: llama3-8b-8192, llama3-70b-8192, mixtral-8x7b-32768
+  temperature: 0.1
+  max_tokens: 2000
+
+# OpenAI API Configuration (Alternative)
+openai:
+  api_key: "${OPENAI_API_KEY}"  # Set via environment variable
+  embedding_model: "text-embedding-3-large"
+  llm_model: "gpt-4-turbo-preview"
+  temperature: 0.1
+  max_tokens: 2000
+
+# Embedding Configuration
+embedding:
+  provider: "local"  # Options: "local" (free), "openai" (paid)
+  local_model: "sentence-transformers/all-MiniLM-L6-v2"  # Free local model
+  dimension: 384  # Dimension for local model
+
+# Alternative: Local Embedding Model
+# embedding:
+#   model_name: "sentence-transformers/all-MiniLM-L6-v2"
+#   device: "cpu"  # or "cuda" for GPU
+
+# PDF Parser Configuration
+pdf_parser:
+  primary: "docling"  # Options: docling, pymupdf, unstructured
+  fallback: "pymupdf"
+  ocr_enabled: true
+  extract_images: true
+  extract_tables: true
+
+# Document Processing
+chunking:
+  strategy: "hierarchical"  # Options: hierarchical, semantic, fixed
+  chunk_size: 800  # tokens
+  chunk_overlap: 150  # tokens
+  respect_section_boundaries: true
+  include_parent_context: true
+  min_chunk_size: 200
+
+# Metadata Extraction
+metadata:
+  extract_acronyms: true
+  resolve_cross_references: true
+  extract_section_hierarchy: true
+  extract_page_numbers: true
+  tag_content_types: true  # text, table, diagram_ref, code
+
+# Vector Store Configuration
+vector_store:
+  type: "faiss"  # Options: faiss, chroma, qdrant
+  index_type: "flat"  # Options: flat, ivf, hnsw
+  distance_metric: "cosine"
+  dimension: 3072  # For text-embedding-3-large
+  
+  # Chroma configuration (if using chroma)
+  # persist_directory: "./vectorstore/chroma"
+  
+  # Metadata filtering
+  enable_metadata_filtering: true
+
+# Retrieval Configuration
+retrieval:
+  strategy: "hybrid"  # Options: vector, keyword, hybrid
+  top_k: 10
+  rerank: true
+  rerank_top_k: 15
+  
+  # Cross-reference resolution
+  enable_multi_hop: true
+  max_hops: 2
+  fetch_parent_sections: true
+  
+  # Scoring weights (for hybrid)
+  vector_weight: 0.7
+  keyword_weight: 0.3
+
+# Answer Generation
+generation:
+  include_citations: true
+  citation_format: "section_page"  # Options: section_page, paragraph, both
+  include_confidence: true
+  min_confidence_threshold: 0.3
+  
+  # System prompt
+  system_prompt: |
+    You are a technical documentation assistant specializing in NASA Systems Engineering.
+    Provide accurate answers with specific citations including section numbers and page numbers.
+    If information spans multiple sections, synthesize the answer and cite all relevant sources.
+    If you cannot find the answer in the provided context, say so clearly.
+
+# Data Paths
+paths:
+  data_dir: "./data"
+  pdf_file: "./data/nasa_handbook.pdf"
+  parsed_output: "./data/parsed/document.json"
+  chunks_output: "./data/chunks/chunks.json"
+  vector_store: "./data/vectorstore"
+  logs: "./logs"
+
+# Download Configuration
+download:
+  nasa_handbook_url: "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf"
+  timeout: 300  # seconds
+  chunk_size: 8192  # bytes for streaming download
+
+# Acronym Dictionary (Common NASA acronyms)
+acronyms:
+  TRL: "Technology Readiness Level"
+  KDP: "Key Decision Point"
+  SRR: "System Requirements Review"
+  PDR: "Preliminary Design Review"
+  CDR: "Critical Design Review"
+  SIR: "System Integration Review"
+  ORR: "Operational Readiness Review"
+  FRR: "Flight Readiness Review"
+  SEMP: "Systems Engineering Management Plan"
+  RMP: "Risk Management Plan"
+  CMP: "Configuration Management Plan"
+  IMP: "Interface Management Plan"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/qa_system.log"
+
+# Performance
+performance:
+  batch_size: 32
+  max_workers: 4
+  cache_embeddings: true
+  cache_dir: "./data/cache"
+
+# Testing & Evaluation
+evaluation:
+  test_queries_file: "./tests/test_queries.json"
+  ground_truth_file: "./tests/ground_truth.json"
+  metrics:
+    - "accuracy"
+    - "citation_precision"
+    - "retrieval_recall"
+    - "answer_relevance"
