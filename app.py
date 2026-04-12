@@ -37,7 +37,7 @@ except Exception:
 
 # Page configuration
 st.set_page_config(
-    page_title="NASA Handbook Q&A",
+    page_title="CLINICAL RESEARCH OPERATIONS MANUAL",
     page_icon=_page_icon,
     layout="wide",
     initial_sidebar_state="expanded"
@@ -330,7 +330,7 @@ def main():
         <div class="main-header">
             {_LOGO_IMG_TAG}
             <div>
-                <div class="main-header-text">NASA Systems Engineering Handbook</div>
+                <div class="main-header-text">CLINICAL RESEARCH OPERATIONS MANUAL</div>
                 <div class="main-header-sub">AI-Powered Technical Assistant &nbsp;·&nbsp; Intelligent Q&amp;A with Verified Citations</div>
             </div>
         </div>
@@ -420,9 +420,9 @@ def main():
             st.markdown(
                 '''
                 <div class="welcome-card">
-                    <h2>👋 Welcome to the NASA SE Handbook Assistant</h2>
+                    <h2>👋 Welcome to the Clinical Research Operations Manual Assistant</h2>
                     <p>
-                        Ask any question about the <strong>NASA Systems Engineering Handbook</strong>.<br>
+                        Ask any question about the <strong>Clinical Research Operations Manual</strong>.<br>
                         Answers are grounded in the source document with verified citations.
                     </p>
                 </div>
@@ -442,7 +442,7 @@ def main():
                 else:
                     # Assistant message
                     answer_html = '<div class="assistant-message">'
-                    answer_html += '<div class="assistant-label">🛰 NASA SE Assistant</div>'
+                    answer_html += '<div class="assistant-label">🛰 Clinical Research Operations Manual Assistant</div>'
                     answer_html += message["content"]
                     
                     # Add metadata

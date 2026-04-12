@@ -44,12 +44,12 @@ def run_pipeline(skip_download: bool = False, skip_parse: bool = False,
     config = get_config()
     
     print("\n" + "=" * 80)
-    print("NASA TECHNICAL MANUAL QA SYSTEM - PIPELINE")
+    print("RUNNING FULL DOCUMENT PROCESSING PIPELINE")
     print("=" * 80 + "\n")
     
     # Step 1: Download and Parse PDF
     if not skip_download or not skip_parse:
-        print("STEP 1: Downloading and Parsing NASA Handbook PDF")
+        print("STEP 1: Downloading and Parsing Clinical Research Operations Manual PDF")
         print("-" * 80)
         
         parser = PDFParser(config)
@@ -60,7 +60,7 @@ def run_pipeline(skip_download: bool = False, skip_parse: bool = False,
             print(f"[OK] Using existing PDF: {pdf_path}")
         else:
             # Download PDF
-            url = config.get('download.nasa_handbook_url')
+            url = config.get('download.clinical_research_manual_url')
             print(f"Downloading from: {url}")
             pdf_path = parser.download_pdf(url, str(pdf_path))
             print(f"[OK] Downloaded to: {pdf_path}")
@@ -246,7 +246,7 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(
-        description='NASA Technical Manual QA System',
+        description='clinical research operations manual question-answering system',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
